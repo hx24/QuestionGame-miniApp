@@ -1,0 +1,5 @@
+/* pages/login.wxss */
+@import '../../common/style/common.wxss';  /* 使用import引入样式文件 */
+page{
+  height: 100%;
+}

@@ -1,0 +1,82 @@
+<import src="../../common/template.wxml"/>    <!-- 引入外部文件 -->
+
+<template name="stringName">    <!--  声明一个模板，name作为标识 -->
+  <view>{{sex}}</view>       <!--  使用接收的参数 -->
+</template>
+
+<!--index.wxml-->
+<view class="container">
+
+  <include src="../../common/Header.wxml"/>
+
+  <template is="title" data="{{title:'标题'}}"></template>
+
+  <view>{{name}}</view>
+  <view>n2+n3= {{ numbers[2] + numbers[3] }}</view>
+
+<!-- key与react一样是为了优化性能指定的唯一值，*this代表使用遍历到的元素,当然也可以用{{item.xx}}指定key -->
+<!--在循环的内部，item代表循环到的元素，index是索引  -->
+  <!-- <view
+    wx:for="{{names}}"
+    wx:key="*this"  
+  >{{index + item}}</view>
+
+    <view
+    wx:for="{{names}}"
+    wx:key="*this"  
+  >{{index + item}}</view> -->
+
+<!--循环时渲染一组同级的组件,使用block作为父组件(block在控制台中并不会显示在节点树里)  -->
+  <!-- <block
+    wx:for="{{names}}"
+    wx:key="*this"  
+  >
+    <view>{{index + item}}</view>
+    <view>同级组件{{index}}</view>
+  </block> -->
+
+
+<!--条件渲染  -->
+  <view
+    wx:if="{{score>70}}"
+  >分值大于70</view>
+
+  <view
+    wx:if="{{score>80}}"
+  >等级A</view>
+  <!--使用elif可实现else if  -->
+  <view
+    wx:elif="{{score>70}}"
+  >等级B</view>
+
+<!--判断一组组件是否显示时，需要时用block组件  -->
+  <block
+    wx:if="{{score>80}}"
+  >
+    <view>{{name}}</view>
+    <view>{{score}}</view>
+    <view>等级A</view>
+  </block>
+
+  <block
+    wx:else
+  >
+    <view>学生不符合要求</view>    
+  </block>
+
+  <template is="stringName" data="{{sex:'male'}}"></template>  
+  <!-- 使用模板 is作为标识, data传递参数 -->
+
+
+  <!-- 绑定事件使用 bind:事件名 冒号可以省略,data-xx 可携带一些信息 -->
+  <!-- 事件默认冒泡，若想阻止冒泡，将bind改为catch  -->
+  <view id='view' bind:tap='onTap' data-name='容器'>    
+    <text id='text' data-name='文字'>点按我可以打印信息</text>
+  </view>
+
+</view>
+
+
+
+
+

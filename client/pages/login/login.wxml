@@ -1,0 +1,5 @@
+<!--pages/login.wxml-->
+
+<view class="container">
+  <button open-type="getUserInfo" bindgetuserinfo='getPermission'>授权登录</button>
+</view>

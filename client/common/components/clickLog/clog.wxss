@@ -1,0 +1,6 @@
+.clickLog{
+  width: 100%;
+  border-radius: 10rpx;
+  background: yellow;
+  padding: 10rpx;
+}
