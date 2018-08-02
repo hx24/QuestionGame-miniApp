@@ -1,5 +1,38 @@
 <!--pages/login.wxml-->
 
+<image class='bg' src='../../common/img/start.png'></image>
 <view class="container">
-  <button open-type="getUserInfo" bindgetuserinfo='getPermission'>授权登录</button>
+  <view class='top-container'>
+    <text class='app-name'>趣味小问答</text>
+  </view>
+  <view class='login-container' wx:if='{{shouldLogin}}'>
+    <view class='phone-container'>
+      <text class='phoneLabel'>手机号:</text>
+      <input 
+        placeholder-class="phone-place-holder" 
+        class='phoneInput' 
+        placeholder="请输入您的手机号" 
+        value='{{phone}}'
+        bindinput='handleInput'
+      />
+    </view>
+    <view class='logins'>
+      <button
+        wx:if="{{phoneOk}}"
+        class='login' 
+        open-type="getUserInfo" 
+        bindgetuserinfo='getPermissionOk'
+      >
+        授权并登录
+      </button>
+      <button
+        wx:else
+        bindtap='handleLogin'
+        class='login' 
+      >
+        授权并登录
+      </button>
+    </view>
+  </view>
+  
 </view>

@@ -9,11 +9,11 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#425658",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "趣味小问答",
     "navigationBarTextStyle": "black",
-    "enablePullDownRefresh": true,
-    "backgroundColor": "#28B26E"
+    "enablePullDownRefresh": false,
+    "backgroundColor": "#fff"
   },
   "debug": false,
   "tabBar": {

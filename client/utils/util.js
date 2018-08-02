@@ -17,7 +17,8 @@ const formatNumber = n => {
 const request = (url,param) => {
   return new Promise((resolve,reject)=>{
     wx.request({
-      url: `https://www.kar98k.club/user/${url}`,
+      // url: `https://www.kar98k.club/user/${url}`,
+      url: `http://192.168.1.137/user/${url}`,
       header: {
         'content-type': 'application/x-www-form-urlencoded', 
         'cookie': wx.getStorageSync("sessionid")
@@ -25,9 +26,12 @@ const request = (url,param) => {
       method: 'POST',
       data: param,
       success: res => {
-        console.log(res)
-        wx.setStorageSync("sessionid", res.header["set-cookie"])
-        resolve(res.data)
+        if (res.statusCode==200){
+          wx.setStorageSync("sessionid", res.header["set-cookie"])
+          resolve(res.data)
+        }else{
+          reject(res)
+        }
       },
       fail: err => {
         reject(err)

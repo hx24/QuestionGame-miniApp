@@ -48,7 +48,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    util.request('getRound', { phone: 13176863291, name: '黄鑫' }).then(data => {
+    util.request('login', { phone: 13176863298, name: '黄鑫2' }).then(data => {
       console.log(data)
     })
   },
