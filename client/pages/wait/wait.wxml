@@ -1,3 +1,50 @@
 <!--pages/wait/wait.wxml-->
 
-<text>wait.html</text>
+<main-bg></main-bg>
+<view class='container'>
+  <!-- <view class='header-container'>
+      <image class='back' src='../../common/img/back.png'></image>
+      <text class='page-title'>无场次</text>
+  </view> -->
+  <view class='footer-container'>
+    <text>获奖排行 </text>|<text> 答题规则</text>
+  </view>
+  <view class='content-container'>
+    <view class='round-name'>
+      <text >{{roundName}}</text>
+    </view>
+    <view class='round-status'>
+      <view class='round-status-main'>
+        <view class='round-status-left round-status-box'>
+          <text class='round-status-title'>本场奖金</text>
+          <text class='round-status-msg'>{{round_reward}}</text>
+        </view>
+        <view class='round-status-right round-status-box'>
+          <text class='round-status-title'>开始时间</text>
+          <text class='round-status-msg'>{{round_startdate}}</text>
+        </view>
+      </view>
+      <view class='round-status-bottom' wx:if='{{!noRound}}'>
+        <text>{{countDown}}</text> 后开始
+      </view>
+    </view>
+    <view class='total-description'>当前总积分</view>
+    <view class='total-money'><text>{{rewardAll}}</text>分</view>
+    <view class='revive-container'>复活卡 <text>{{revive}}</text> 张</view>
+    <view class='revive-message'>每日参与答题可获得复活卡</view>
+    <scroll-view 
+      class='history-container'
+      scroll-y
+    >
+      <view 
+        class='history-item'
+        wx:for='{{historiess}}'
+        wx:key='*this'
+      >
+        <view>{{item.roundName}}</view>
+        <view>共答对<text>{{item.answercount}}</text>题</view>
+        <view>获得积分<text>{{item.reward}}</text>分</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

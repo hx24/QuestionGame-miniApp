@@ -1,4 +1,7 @@
 /**app.wxss**/
+page{
+  height: 100%;
+}
 .container {
   height: 100%;
   display: flex;
@@ -7,5 +10,5 @@
   justify-content: center;
   box-sizing: border-box;
   position: relative;
-  z-index: 10
+  z-index: 10;
 } 

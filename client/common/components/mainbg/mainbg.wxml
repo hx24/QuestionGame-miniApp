@@ -1,0 +1,2 @@
+<!--common/components/mainbg.wxml-->
+<image class='bg' src='../../img/bg.jpg'></image>

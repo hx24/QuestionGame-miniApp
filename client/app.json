@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/wait/wait",
     "pages/login/login",
     "pages/logs/logs",
     "pages/index/index",
     "pages/movie/movie",
     "pages/about/about",
-    "pages/wait/wait"
+    "pages/rest/rest"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -15,27 +16,5 @@
     "enablePullDownRefresh": false,
     "backgroundColor": "#fff"
   },
-  "debug": false,
-  "tabBar": {
-    "color": "black",
-    "selectedColor": "#1D9BDC",
-    "list": [
-      {
-        "text": "首页",
-        "pagePath": "pages/index/index",
-        "iconPath": "common/img/mang.png",
-        "selectedIconPath": "common/img/mang_color.png"
-      },
-      {
-        "text": "日志",
-        "pagePath": "pages/logs/logs",
-        "iconPath": "common/img/delete.png",
-        "selectedIconPath": "common/img/delete_color.png"
-      },
-      {
-        "text": "电影",
-        "pagePath": "pages/movie/movie"
-      }
-    ]
-  }
+  "debug": false
 }

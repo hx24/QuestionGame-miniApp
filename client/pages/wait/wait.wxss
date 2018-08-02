@@ -1,1 +1,136 @@
 /* pages/wait/wait.wxss */
+view{
+  text-align: center
+}
+.container{
+  color: #fff;
+}
+.header-container{
+  width: 100%;
+  margin-top: 30rpx;
+  order: 0
+}
+.header-container .back{
+  width: 50rpx;
+  height:50rpx;
+  position: absolute;
+  left: 30rpx;
+}
+.header-container .page-title{
+  display: inline-block;
+  width: 100%;
+  font-size: 28rpx;
+}
+
+.content-container{
+  width: 100%;
+  height: 100%;
+  order: 1;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-container .round-name{
+  color: #ffeba9;
+  font-size: 45rpx;
+}
+
+.content-container .round-status{
+  margin: 0 60rpx;
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin-top: 15rpx;
+  position: relative;
+  height: auto
+}
+
+.content-container .round-status .round-status-main{
+  margin: 45rpx 0;
+  display: flex;
+  align-items: center;
+}
+
+.round-status-main .round-status-box{
+  width: 50%;
+  color: #222;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.round-status-main .round-status-box .round-status-title{
+  font-size: 25rpx;
+  color: #8f8f94;
+}
+
+.round-status-main .round-status-box .round-status-msg{
+  margin-top: 10rpx;
+  font-size: 64rpx;
+  font-weight: bold;
+  color: #cd0000;
+}
+
+
+.round-status .round-status-bottom{
+  position: absolute;
+  bottom: 0;
+  height: 35rpx;
+  color: #8f8f94;
+  font-size: 20rpx;
+  width: 100%;
+}
+
+.content-container .total-description{
+  margin-top: 30rpx;
+  font-size: 28rpx;
+}
+
+.content-container .total-money{
+  font-size: 76rpx;
+  margin-bottom: 20rpx;
+}
+
+.content-container .history-container{
+  order: 1;
+  display: flex;
+  /* height: 100%; */
+  flex-grow: 1;
+  height: 300rpx;
+  margin-bottom: 20rpx;
+}
+
+.content-container .history-container .history-item{
+  display: flex;
+  padding: 10rpx;
+}
+
+.content-container .history-container .history-item view{
+  width: 33%;
+  font-size: 28rpx;
+}
+
+.content-container .revive-container{
+  background-color: #fff;
+  border-radius: 10rpx;
+  margin: 40rpx 60rpx 8rpx;
+  color: #cd0000;
+  font-size: 28rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  order: 2;
+}
+
+.content-container .revive-message{
+  color: #8f8f94;
+  font-size: 20rpx;
+  margin-bottom: 30rpx;
+  order: 3;
+}
+
+.footer-container{
+  height: 35rpx;
+  font-size: 25rpx;
+  margin-bottom: 20rpx;
+  order: 2;
+}

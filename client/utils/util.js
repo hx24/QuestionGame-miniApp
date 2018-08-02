@@ -18,7 +18,7 @@ const request = (url,param) => {
   return new Promise((resolve,reject)=>{
     wx.request({
       // url: `https://www.kar98k.club/user/${url}`,
-      url: `http://192.168.1.137/user/${url}`,
+      url: `http://192.168.1.123/user/${url}`,
       header: {
         'content-type': 'application/x-www-form-urlencoded', 
         'cookie': wx.getStorageSync("sessionid")
@@ -27,9 +27,15 @@ const request = (url,param) => {
       data: param,
       success: res => {
         if (res.statusCode==200){
-          wx.setStorageSync("sessionid", res.header["set-cookie"])
+          var cookie = res.header["set-cookie"] || res.header["Set-Cookie"]; // 调试时是set-cookie  真机运行时是Set-Cookiel
+          wx.setStorageSync("sessionid", cookie);
           resolve(res.data)
-        }else{
+        } else{
+          if (res.statusCode == 403){
+            wx.redirectTo({
+              url: '/pages/login/login'
+            })
+          }
           reject(res)
         }
       },

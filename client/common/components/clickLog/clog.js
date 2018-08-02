@@ -14,5 +14,4 @@ Component({
       this.triggerEvent('getRandomNum', Math.random());  // 也可传对象
     }
   },
-  
 })
