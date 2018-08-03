@@ -1,0 +1,42 @@
+<!--pages/rank/rank.wxml-->
+<main-bg/>
+<view class='container'>
+  <view class='header-container'>
+      <image bindtap='back' class='back' src='../../common/img/back.png'></image>
+      <text class='page-title'>三日获奖排行</text>
+  </view>
+  <view class='round-name-container'>
+    <image 
+      src='/common/img/left-arrow.png' 
+      class='round-arrow round-left-arrow'
+      bindtap='preview'
+      wx:if='{{currentIndex>0}}'
+    ></image>
+    <image 
+      src='/common/img/right-arrow.png' 
+      class='round-arrow round-right-arrow'
+      bindtap='next'
+      wx:if='{{currentIndex<rankDatas.length-1}}'
+    ></image>
+    <view class='round-name'>{{currentRank.roundName||'暂无数据'}}</view>
+  </view>
+  <scroll-view 
+    class='rank-container' 
+    scroll-y
+  >
+    <view 
+      class='rank-item' 
+      wx:for='{{currentRank.userRank}}'
+      wx:key='*this'
+    >
+      <view class='rank-item-left'>
+        <text class='rank-item-name'>{{item.name}}</text>
+        <text class='rank-item-phone'>{{item.phone}}</text>
+      </view>
+      <view class='rank-item-right'>
+        <text class='rank-item-count'>{{item.answercount}}道</text>
+        <text class='rank-item-reward'>{{item.reward}}元</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

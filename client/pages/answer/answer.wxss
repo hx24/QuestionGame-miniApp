@@ -1,0 +1,102 @@
+/* pages/answer/answer.wxss */
+
+.container{
+  color: #fff;
+  padding: 0 50rpx;
+}
+.answer-status{
+  margin-top: 30rpx;
+  font-size: 35rpx;
+}
+
+.seconds-count{
+  width: 150rpx;
+  height: 150rpx;
+  margin-top: 30rpx;
+  border: 10rpx solid rgba(255, 255, 255, 0.7);
+  border-radius: 150rpx;
+  font-size: 80rpx;
+  line-height: 150rpx;
+  text-align: center;
+}
+
+.question-index{
+  margin-top: 30rpx;
+  font-size: 30rpx;
+}
+
+.willget-description{
+  margin: 30rpx 0;
+  font-size: 30rpx;
+  order: 1
+}
+
+.question{
+  width: 100%;
+  font-size: 35rpx;
+  line-height: 55rpx;
+  margin-top: 40rpx;
+}
+
+.answers-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin-top: 30rpx;
+  margin-bottom: 50rpx;
+
+}
+
+.answers-container .answer-item{
+  background-color: #fff;
+  color: #cd0000;
+  width: 100%;
+  height: 33%;
+  margin: 20rpx 0;
+  box-shadow: 8rpx 8rpx 8rpx #810909;
+  font-size: 30rpx;
+}
+
+.answers-container .select{
+  /* 选中 */
+  background-color: #e9dc05;
+}
+
+.answers-container .right{
+  /* 正确答案 */
+  background-color: #13a33b;
+  color: #fff;
+}
+
+.answers-container .wrong{
+  /* 错误答案 */
+  background-color: #fe0202;
+  color: #fff;
+}
+
+.answers-container .answer-item .answer-item-box{
+  width: auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.answers-container .answer-item .answer-item-left{
+  float: left;
+  height: 100%;
+}
+.answers-container .answer-item .answer-item-right{
+  float: right;
+}
+
+.answers-container .answer-item .answer-item-right .answer-icon{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 20rpx;
+}
+
+
+
+

@@ -1,1 +1,25 @@
 /* pages/rest/rest.wxss */
+
+.round-name{
+  margin-top: 70rpx;
+  color: #ffeba9;
+  font-size: 45rpx;
+}
+
+.gif-container {
+  box-sizing: content-box;
+  margin: 80rpx 60rpx;
+  overflow: hidden;
+  height: 350rpx;
+  border-radius: 10rpx;
+}
+
+.gif-container image{
+  position: relative;
+  border-radius: 10rpx;
+}
+
+.getting{
+  color: #fff;
+  font-size: 35rpx;
+}

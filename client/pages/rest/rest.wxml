@@ -1,2 +1,9 @@
 <!--pages/rest/rest.wxml-->
-<text>pages/rest/rest.wxml</text>
+<main-bg/>
+<view class='container'>
+  <view class='round-name'>{{roundName}}</view>
+  <view class='gif-container' id='gif-container'>
+    <image src='/common/img/animate.gif' style='top:{{gifTop}}'></image>
+  </view>
+  <view class='getting'>第 {{question_index}} 题正在赶来的路上</view>
+</view>

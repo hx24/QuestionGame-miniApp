@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/wait/wait",
     "pages/login/login",
+    "pages/wait/wait",
+    "pages/rank/rank",
+    "pages/answer/answer",
+    "pages/rest/rest",
     "pages/logs/logs",
     "pages/index/index",
     "pages/movie/movie",
-    "pages/about/about",
-    "pages/rest/rest"
+    "pages/about/about"
   ],
   "window": {
     "backgroundTextStyle": "light",

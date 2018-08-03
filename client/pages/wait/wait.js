@@ -7,14 +7,12 @@ var oldstartData;
 var layerLoading;
 var showLoading = true;
 
-wx.removeStorageSync("currentQuestion");  //清空问题
 
 var getPlayRoundTimes = 0;
 
 var getPlayRoundTimer;
 
 var _ordertimer = null;
-var data = new Date();
 
 Page({
 
@@ -31,42 +29,17 @@ Page({
     countDown: '--:--:--',
     historiess: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onShow(){
+    wx.removeStorageSync("currentQuestion");  //清空问题
+    wx.showLoading();
+    this.fn_getPlayRound();
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.fn_getPlayRound()
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
   onHide: function () {
-  
+    clearTimeout(getPlayRoundTimer);
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-  
+    clearTimeout(getPlayRoundTimer);
   },
-
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
@@ -75,24 +48,15 @@ Page({
   },
 
   /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-  
-  },
   fn_getPlayRound() {
     const This=this;
     if (showLoading) {
       wx.showLoading();
     }
     request('getRound').then(function (data) {
+      wx.hideLoading()
       showLoading = false;
       wx.hideLoading();
       console.log(data)
@@ -148,7 +112,8 @@ Page({
         getPlayRoundTimes++;
       } else {
         wx.showToast({
-          title: '获取场次信息失败,请下拉刷新或尝试重新登录',
+          icon: 'none',
+          title: '获取场次信息失败<br/>请下拉刷新或尝试重新登录',
           duration: 3000
         })
       }
@@ -161,16 +126,14 @@ Page({
     var minutes = parseInt(leftTime / 1000 / 60 % 60, 10); //计算剩余的分钟
     var seconds = parseInt(leftTime / 1000 % 60, 10); //计算剩余的秒数
     //		days = checkTime(days);
-    hours = checkTime(hours);
-    minutes = checkTime(minutes);
-    seconds = checkTime(seconds);
     if (hours >= 0 || minutes >= 0 || seconds >= 0) {
       this.setData({
-        countDown: hours + ":" + minutes + ":" + seconds
+        countDown: checkTime(hours) + ":" + checkTime(minutes) + ":" + checkTime(seconds)
       })
     }
 
     if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+      console.log('开始答题')
       clearInterval(_ordertimer);
       _ordertimer = null;
       wx.removeStorageSync("currentQuestion");  //答题开始，先清空之前缓存的问题
@@ -212,13 +175,14 @@ Page({
     _ordertimer = setInterval(function () {
       This.leftTimer(date2)
     }, 1000);
+  },
+  toRank(){
+    wx.redirectTo({
+      url: '/pages/rank/rank',
+    })
   }
 
 })
-
-
-
-
 
 function checkTime(i) { //将0-9的数字前面加上0，例1变为01
   if (i < 10) {

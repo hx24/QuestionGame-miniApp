@@ -1,0 +1,30 @@
+<!--pages/answer/answer.wxml-->
+<main-bg/>
+<view class='container'>
+  <text class='answer-status'>答题开始</text>
+  <view class='seconds-count' style='font-size:{{secondSize}}'>{{second}}</view>
+  <view class='question-index'>第{{questionindex}}题</view>
+  <view class='willget-description' style='visibility:{{result_second==undefined?"hidden":"visible"}}'>{{result_second}}秒后开始接收下一题</view>
+  <view class='question'>{{question}}</view>
+  <view class='answers-container'>
+    
+    <button 
+      class='answer-item {{selectOption==index?"select":""}} {{errorOption==index?"wrong":""}} {{correctOption==index?"right":""}}'
+      wx:for='{{options}}'
+      wx:key='*this'
+      bindtap='handleSelect'
+      data-index='{{index}}'
+    >
+      <view class='answer-item-box answer-item-left '>
+        <text class='answer-text'>{{item}}</text>
+      </view>
+      <view class='answer-item-box answer-item-right' wx:if='{{optionCounts}}'>
+        <image 
+          wx:if='{{selectOption==index}}' 
+          class='answer-icon' src='/common/img/{{selectOption==correctOption?"right":"wrong"}}.png'></image>
+        <view class='answer-count'>{{optionCounts[index]}} 人</view>
+      </view>
+    </button>
+  </view>
+
+</view>

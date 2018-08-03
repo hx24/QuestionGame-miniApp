@@ -1,0 +1,80 @@
+/* pages/rank/rank.wxss */
+view{
+  text-align: center
+}
+.container{
+  padding: 20rpx 30rpx;
+  color: #fff;
+}
+.header-container{
+  width: 100%;
+  margin-top: 30rpx;
+  order: 0
+}
+.header-container .back{
+  width: 50rpx;
+  height:50rpx;
+  position: absolute;
+  left: 30rpx;
+}
+.header-container .page-title{
+  display: inline-block;
+  width: 100%;
+  font-size: 32rpx;
+}
+
+.round-name-container{
+  width: 100%;
+  margin-top: 50rpx;
+  display: flex;
+}
+
+.round-name-container .round-arrow{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.round-name-container .round-right-arrow{
+  order: 1;
+}
+
+
+.round-name-container .round-name{
+  width: 100%;
+  color: #ffeba9;
+  font-size: 40rpx;
+}
+
+.rank-container{
+  margin-top: 50rpx;
+  display: flex;
+  flex-direction: column;
+  height: 200rpx;
+  flex-grow: 1
+}
+
+.rank-container .rank-item{
+  font-size: 30rpx;
+  display: flex;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 30rpx;
+  
+}
+
+.rank-container .rank-item .rank-item-left{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: start
+}
+
+.rank-container .rank-item .rank-item-right{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  text-align: end
+}
+
+.rank-container .rank-item text{
+  margin-bottom: 20rpx;
+}
