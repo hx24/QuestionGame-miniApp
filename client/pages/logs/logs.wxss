@@ -1,6 +1,0 @@
-@import '../../common/style/common.wxss';  /* 使用import引入样式文件 */
-.test{
-  background: #26B1D0;
-  width: 375rpx;
-  text-align: center;
-}

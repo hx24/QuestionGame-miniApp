@@ -39,7 +39,7 @@
       <view 
         class='history-item'
         wx:for='{{historiess}}'
-        wx:key='*this'
+        wx:key='*this.roundName'
       >
         <view>{{item.roundName}}</view>
         <view>共答对<text>{{item.answercount}}</text>题</view>

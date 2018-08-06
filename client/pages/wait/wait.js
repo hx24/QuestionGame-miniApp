@@ -12,7 +12,6 @@ var getPlayRoundTimes = 0;
 
 var getPlayRoundTimer;
 
-var _ordertimer = null;
 
 Page({
 
@@ -36,9 +35,11 @@ Page({
   },
   onHide: function () {
     clearTimeout(getPlayRoundTimer);
+    clearInterval(this._ordertimer)
   },
   onUnload: function () {
     clearTimeout(getPlayRoundTimer);
+    clearInterval(this._ordertimer)
   },
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -46,6 +47,7 @@ Page({
   onPullDownRefresh: function () {
     this.fn_getPlayRound()
   },
+  _ordertimer: null,
 
   /**
    * 用户点击右上角分享
@@ -59,8 +61,6 @@ Page({
       wx.hideLoading()
       showLoading = false;
       wx.hideLoading();
-      console.log(data)
-
       data = data.result;
 
       var round = data.round;
@@ -86,7 +86,7 @@ Page({
           round_startdate: "--:--"
         })
 
-        clearInterval(_ordertimer);
+        clearInterval(this._ordertimer);
 
         if (getPlayRoundTimer) {
           clearInterval(getPlayRoundTimer);
@@ -120,7 +120,7 @@ Page({
     })
   },
   leftTimer(enddate) {
-    var leftTime = (new Date(enddate)) - new Date(); //计算剩余的毫秒数
+    var leftTime = new Date(enddate) - new Date() - 2000; //计算剩余的毫秒数  微信时间差问题稍大，提前两秒进入请求题目页面
     //		var days = parseInt(leftTime / 1000 / 60 / 60 / 24, 10); //计算剩余的天数
     var hours = parseInt(leftTime / 1000 / 60 / 60 % 24, 10); //计算剩余的小时
     var minutes = parseInt(leftTime / 1000 / 60 % 60, 10); //计算剩余的分钟
@@ -132,10 +132,9 @@ Page({
       })
     }
 
-    if (hours <= 0 && minutes <= 0 && seconds <= 0) {
-      console.log('开始答题')
-      clearInterval(_ordertimer);
-      _ordertimer = null;
+    if (hours <= 0 && minutes <= 0 && seconds <= 0) {     
+      clearInterval(this._ordertimer);
+      this._ordertimer = null;
       wx.removeStorageSync("currentQuestion");  //答题开始，先清空之前缓存的问题
       wx.redirectTo({
         url: '/pages/rest/rest',
@@ -143,12 +142,12 @@ Page({
     }
   },
   startCountdown(v) {
-    if (_ordertimer) {
+    if (this._ordertimer) {
       if (oldstartData == v) {
         return;
       } else {
-        clearInterval(_ordertimer)
-        _ordertimer = null;
+        clearInterval(this._ordertimer)
+        this._ordertimer = null;
       }
       //已经在倒计时了
 
@@ -172,7 +171,8 @@ Page({
       return; //设置的时间小于现在时间退出
     }
     const This=this;
-    _ordertimer = setInterval(function () {
+    This.leftTimer(date2)
+    this._ordertimer = setInterval(function () {
       This.leftTimer(date2)
     }, 1000);
   },

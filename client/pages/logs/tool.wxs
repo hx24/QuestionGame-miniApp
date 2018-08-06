@@ -1,5 +1,0 @@
-function creatArray(str) {
-  return str.split(',');
-}
-
-module.exports = creatArray;
