@@ -7,7 +7,7 @@
       <text class='page-title'>无场次</text>
   </view> -->
   <view class='footer-container'>
-    <text bindtap='toRank'>获奖排行 </text>|<text> 答题规则</text>
+    <text bindtap='toRank'>获奖排行 </text>|<text bindtap='toRule'> 答题规则</text>
   </view>
   <view class='content-container'>
     <view class='round-name'>
@@ -16,7 +16,7 @@
     <view class='round-status'>
       <view class='round-status-main'>
         <view class='round-status-left round-status-box'>
-          <text class='round-status-title'>本场奖金</text>
+          <text class='round-status-title'>本场积分</text>
           <text class='round-status-msg'>{{round_reward}}</text>
         </view>
         <view class='round-status-right round-status-box'>

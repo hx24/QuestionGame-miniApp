@@ -33,10 +33,6 @@ Page({
     wx.showLoading();
     this.fn_getPlayRound();
   },
-  onHide: function () {
-    clearTimeout(getPlayRoundTimer);
-    clearInterval(this._ordertimer)
-  },
   onUnload: function () {
     clearTimeout(getPlayRoundTimer);
     clearInterval(this._ordertimer)
@@ -86,7 +82,7 @@ Page({
           round_startdate: "--:--"
         })
 
-        clearInterval(this._ordertimer);
+        clearInterval(This._ordertimer);
 
         if (getPlayRoundTimer) {
           clearInterval(getPlayRoundTimer);
@@ -179,6 +175,11 @@ Page({
   toRank(){
     wx.redirectTo({
       url: '/pages/rank/rank',
+    })
+  },
+  toRule(){
+    wx.redirectTo({
+      url: '/pages/rule/rule'
     })
   }
 

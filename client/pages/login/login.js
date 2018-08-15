@@ -52,6 +52,7 @@ Page({
   },
   handleLogin(){
     var content = this.data.phone ? '请输入正确的手机号':'请输入手机号';
+    content = content + '\n符合规则即可，不校验真实性' ;
     wx.showModal({
       duration: 300,
       title: '',
@@ -69,47 +70,54 @@ Page({
     })
   },
   getPermissionOk(res){
+    const This = this;
+    if (res.detail.signature){   // 权限获取成功
+      this.login(res.detail.userInfo.nickName)
+    }else{
+      wx.showModal({
+        duration: 300,
+        title: '未授权',
+        content: '您未授权，将匿名进入程序',
+        showCancel: false,
+        success: function(){
+          This.login('微信用户');
+        }
+      });
+    }
+  },
+  login(name){
     wx.showLoading({
       title: '登录中',
     })
     const This = this;
-    if (res.detail.signature){   // 权限获取成功
-      wx.login({
-        success: ({code})=>{
-          var param = {
-            code,
-            phone: This.data.phone,
-            name: res.detail.userInfo.nickName
-          }
-          util.request('login', param).then(res => {
-            wx.hideLoading();
-            if (!res.error) {
-              // 登录成功
-              wx.redirectTo({
-                url: '/pages/wait/wait'
-              })
-            } else {
-              // 该用户未绑定手机号
-              This.setData({
-                shouldLogin: true
-              })
-            }
-          }, function(){
-            // wx.hideLoading();
-            wx.showToast({
-              title: '登录失败，请稍后再试',
-              icon: 'none',
-            })
-          })
+    wx.login({
+      success: ({ code }) => {
+        var param = {
+          code,
+          phone: This.data.phone,
+          name: name
         }
-      })
-    }else{
-      wx.showModal({
-        duration: 300,
-        title: '登录失败',
-        content: '您需要授权后才能进入程序',
-        showCancel: false,
-      })
-    }
+        util.request('login', param).then(res => {
+          wx.hideLoading();
+          if (!res.error) {
+            // 登录成功
+            wx.redirectTo({
+              url: '/pages/wait/wait'
+            })
+          } else {
+            // 该用户未绑定手机号
+            This.setData({
+              shouldLogin: true
+            })
+          }
+        }, function () {
+          wx.hideLoading();
+          wx.showToast({
+            title: '登录失败，请稍后再试',
+            icon: 'none',
+          })
+        })
+      }
+    })
   }
 })

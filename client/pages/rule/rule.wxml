@@ -1,0 +1,58 @@
+<!--pages/rule/rule.wxml-->
+<image class='bg' src='../../common/img/rule.jpg'></image>
+<view class='container'>
+  <view class='header-container' bindtap='handleBack'>
+      <image class='back' src='../../common/img/back.png'></image>
+      <text class='page-title'>答题规则</text>
+  </view>
+
+  <scroll-view
+    class='rules-scroll-container'
+    scroll-y
+  >
+    <view class='rule-container'>
+      <view class='title-container'>
+        <image mode='widthFix' class='title-bg' src='../../common/img/rule_title.png'></image>
+        <text class='title-text'>登录绑定</text>
+      </view>
+      <view class='content-container'>
+        <text>使用微信绑定手机号后登陆，若使用app登陆过，会根据手机号自动进行关联。</text>
+      </view>
+    </view>
+    <view class='rule-container'>
+      <view class='title-container'>
+        <image mode='widthFix' class='title-bg' src='../../common/img/rule_title.png'></image>
+        <text class='title-text'>答题规则</text>
+      </view>
+      <view class='content-container'>
+        <text>每天不定时发放场次，在首页下拉刷新可更新场次信息，若场次已开始，不可再进入场次，中途退出也无法再次进入场次。</text>
+        <text>每道题目只能选择一次答案，不可修改，若打错并且没有复活卡，下一题将不能进行作答，只能观战。</text>
+        <text>每道题目结束时会显示正确答案和每个选项的选择人数。</text>
+        <text>每场积分不定，多有参与答题的人根据答对题目的数量平分积分。</text>
+        <text>每场游戏结束后通过“获奖名单”界面查看获奖情况。</text>
+      </view>
+    </view>
+
+    <view class='rule-container'>
+      <view class='title-container'>
+        <image mode='widthFix' class='title-bg' src='../../common/img/rule_title.png'></image>
+        <text class='title-text'>复活卡</text>
+      </view>
+      <view class='content-container'>
+        <text>如遇答错系统自动使用1张复活卡帮助你跳过此次答错的题目，复活卡每场只能使用1次。</text>
+        <text>每次参与答题并且可获得复活卡。</text>
+      </view>
+    </view>
+
+    <view class='rule-container'>
+      <view class='title-container'>
+        <image mode='widthFix' class='title-bg' src='../../common/img/rule_title.png'></image>
+        <text class='title-text'>积分分配</text>
+      </view>
+      <view class='content-container'>
+        <text>所有参与者按照答题正确数量平分积分。</text>
+        <text>例如:本场总积分设置为1000分,共有50人回答正确300道题目，则每人所得积分等于（1000除以300）乘以本人正确回答题目的数量。</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

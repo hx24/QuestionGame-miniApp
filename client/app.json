@@ -2,9 +2,10 @@
   "pages": [
     "pages/login/login",
     "pages/wait/wait",
-    "pages/rank/rank",
     "pages/answer/answer",
-    "pages/rest/rest"
+    "pages/rank/rank",
+    "pages/rest/rest",
+    "pages/rule/rule"
   ],
   "window": {
     "backgroundTextStyle": "light",

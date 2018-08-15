@@ -23,14 +23,14 @@
         open-type="getUserInfo" 
         bindgetuserinfo='getPermissionOk'
       >
-        授权并登录
+        登录
       </button>
       <button
         wx:else
         bindtap='handleLogin'
         class='login' 
       >
-        授权并登录
+        登录
       </button>
     </view>
   </view>

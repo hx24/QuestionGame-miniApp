@@ -35,7 +35,7 @@
       </view>
       <view class='rank-item-right'>
         <text class='rank-item-count'>{{item.answercount}}道</text>
-        <text class='rank-item-reward'>{{item.reward}}元</text>
+        <text class='rank-item-reward'>{{item.reward}}分</text>
       </view>
     </view>
   </scroll-view>

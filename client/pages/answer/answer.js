@@ -125,9 +125,11 @@ Page({
         })
 
         if (data.correct != This.data.selectOption) {
+          let errorOption = 4;
+          if (This.data.selectOption == 0 || This.data.selectOption) errorOption = This.data.selectOption;
           //用户选择了错误答案
           This.setData({
-            errorOption: This.data.selectOption||4
+            errorOption
           })
         }
 
